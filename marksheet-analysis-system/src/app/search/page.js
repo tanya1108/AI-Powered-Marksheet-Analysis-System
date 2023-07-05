@@ -7,6 +7,7 @@ import { FcSearch } from "react-icons/fc";
 
 const Search = () => {
   const [response, setResponse] = useState(null);
+
   const [inputId, setInputId] = useState("");
 
   const handleSearch = async (event) => {
