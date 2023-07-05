@@ -2,7 +2,9 @@
 const nextConfig = {
   experimental: {
     appDir: true,
-    scrollRestoration: true,
+  },
+  env: {
+    SUPABASE_KEY: process.env.SUPABASE_KEY,
   },
 };
 
