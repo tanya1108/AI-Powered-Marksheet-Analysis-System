@@ -11,11 +11,9 @@ const Search = () => {
 
   const handleSearch = async (event) => {
     event.preventDefault();
-
     if (!inputId) {
       return;
     }
-
     try {
       const { data, error } = await supabase
         .from("accounts")
