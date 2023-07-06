@@ -8,6 +8,7 @@ import SaveOutlinedIcon from "@mui/icons-material/SaveOutlined";
 import Navbar from "./Navbar";
 import ScoreTable from "./ScoreTable";
 import { FcCamera } from "react-icons/fc";
+import { SUBJECT_LIST } from "./constants";
 
 function Home() {
   const [imagePath, setImagePath] = useState("");
@@ -18,6 +19,7 @@ function Home() {
     subjects: [],
   });
   const [enable, setEnable] = useState(false);
+  const [converting, setConverting] = useState(false);
 
   const resetState = () => {
     setImagePath("");
@@ -33,24 +35,33 @@ function Home() {
   };
 
   const handleClick = async () => {
+    setConverting(true);
     Tesseract.recognize(imagePath, "eng", {
       logger: (m) => console.log(m),
     })
       .catch((err) => {
         console.error(err);
+        setConverting(false);
       })
       .then((result) => {
         setText(result?.data?.text);
+
         const extractedText = result?.data?.text;
-        const nameRegex = /Name\s([\w\s]+)\sof/;
+
+        // Extract name
+        const nameRegex = /Name ?\s*([\w\s]+(?:\s+\w+))/i;
         const nameMatch = extractedText.match(nameRegex);
         const name = nameMatch ? nameMatch[1].trim() : "";
 
-        const idRegex = /ID\s(\d+)/;
+        // Extract ID / Roll No.
+        const idRegex = /\b(ID|Rol[l]?|Roll No\.|R[o0]liNo)\s([^ ]+)/i;
         const idMatch = extractedText.match(idRegex);
-        const id = idMatch ? idMatch[1] : "";
+        const id = idMatch ? idMatch[2] : "";
 
-        const subjectsRegex = /(\w+)\s+(\d+)/g;
+        const subjectsRegex = new RegExp(
+          `(${SUBJECT_LIST.join("|")})[^\\d]*?(\\d+|\\b[A-Za-z]{2}\\b)`,
+          "gi"
+        );
         const subjectsMatches = [...extractedText.matchAll(subjectsRegex)];
 
         const subjectsAndMarks = subjectsMatches.map((match) => ({
@@ -64,6 +75,7 @@ function Home() {
           subjects: subjectsAndMarks,
         });
         setEnable(true);
+        setConverting(false);
       });
   };
 
@@ -93,7 +105,7 @@ function Home() {
     <>
       <Navbar />
       <h1 className="text-center font-bold text-4xl my-4">
-        Image to Text Convertor 🚀
+        Academic Transcript Analyzer! 🚀
       </h1>
       <div className="text-gray-400 font-medium text-center">
         Transform images into text with image-to-text conversion application.
@@ -137,7 +149,7 @@ function Home() {
                   <div>
                     <button
                       onClick={handleClick}
-                      disabled={!imagePath}
+                      disabled={!imagePath || converting}
                       className={
                         imagePath
                           ? "w-40 border bg-blue-500 rounded-md border-solid border-blue-500 p-2 mt-2 text-black"
@@ -145,7 +157,7 @@ function Home() {
                       }
                     >
                       <CloudUploadOutlinedIcon className="-mt-1 mr-1" />
-                      Convert
+                      {converting ? "Converting..." : "Convert"}
                     </button>
                     {enable && (
                       <button
