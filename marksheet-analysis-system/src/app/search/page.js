@@ -52,7 +52,7 @@ const Search = () => {
             <input
               type="text"
               value={inputId}
-              placeholder="Search by ID......"
+              placeholder="Search by User Roll No./ID......"
               className="text-black bg-white border rounded-md border-gray-400  p-2"
               onChange={(event) => setInputId(event.target.value)}
             />
