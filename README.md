@@ -1,6 +1,6 @@
 # AI-Powered-Marksheet-Analysis-System
 
-![Project Logo](/path/to/logo.png)
+![Project Logo](https://i.imgur.com/cNMNvN7.png)
 
 The AI-Powered-Marksheet-Analysis-System is a Next.js project that utilizes the Tesseract.js npm package for optical mark recognition (OMR) conversion. The system is designed to extract details from a marksheet image and save them in a Supabase database. Additionally, it includes a search page that allows users to retrieve user details based on an ID provided from Supabase.
 
@@ -13,10 +13,10 @@ The AI-Powered-Marksheet-Analysis-System is a Next.js project that utilizes the 
 
 ## Prerequisites
 
-- Node.js (version X.X.X)
-- npm (version X.X.X)
+- Node.js (version 20.2.0)
+- npm (version 8.5.5)
 - Supabase account and project details
-- Tesseract.js npm package (automatically installed during setup)
+- Tesseract.js npm package (automatically installed during setup, version: 4.1.1)
 
 ## Installation
 
@@ -42,6 +42,7 @@ The AI-Powered-Marksheet-Analysis-System is a Next.js project that utilizes the 
 
    - Obtain your Supabase project details (URL and API key).
    - Update the configuration in `src/config.js` with your Supabase project URL and API key.
+   - Create a table in supabase which stores basic user details
 
 5. Start the development server:
 
@@ -59,25 +60,19 @@ The AI-Powered-Marksheet-Analysis-System is a Next.js project that utilizes the 
 4. To retrieve user details, visit the search page and enter the desired ID.
 5. The system will fetch the corresponding user details from the database and display them.
 
-## Contributing
-
-Contributions are welcome! If you find any issues or would like to suggest enhancements, please submit a pull request or open an issue in this repository.
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
 
 ## Acknowledgments
 
-- [Tesseract.js](https://tesseract.projectnaptha.com/)
+- [Tesseract.js](https://www.npmjs.com/package/tesseract.js/v/2.1.1)
 - [Supabase](https://supabase.io/)
 
 ## Contact
 
-For any inquiries or feedback, please contact [your-email-address].
+For any inquiries or feedback, please contact [tanyasinha828@gmail.com].
 
 ## TODO
 
 - [ ] Add unit tests
 - [ ] Improve error handling
 - [ ] Implement additional features (e.g., data visualization, user management)
+- [ ] Add auth check
