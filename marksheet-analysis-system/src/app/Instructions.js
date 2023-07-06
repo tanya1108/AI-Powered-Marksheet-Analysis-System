@@ -11,8 +11,11 @@ const INSTRUCTIONS = [
 const Instructions = () => {
   return (
     <div className="grid grid-cols-2 gap-4 my-10">
-      {INSTRUCTIONS.map((i) => (
-        <div className="border border-gray-300 p-10 text-lg rounded-sm border-dashed">
+      {INSTRUCTIONS.map((i, index) => (
+        <div
+          key={index}
+          className="border border-gray-300 p-10 text-lg rounded-sm border-dashed"
+        >
           {i}
         </div>
       ))}
