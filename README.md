@@ -78,3 +78,19 @@ For any inquiries or feedback, please contact [tanyasinha828@gmail.com].
 - [ ] Implement additional features (e.g., data visualization, user management)
 - [ ] Add auth check
 - [ ] Feature to add subjects from the dashboard itself, instead of hardcoding.
+
+## Unit & Integration Test Results
+- The unit test covers 4 test cases as of now:
+  1. Text Extraction Process Success
+  2. Text Extraction Process Failure
+  3. User Details Search Success
+  4. User Details Search Failure
+   
+- The integration test covers 4 test cases as of now:
+  1. Insert in Database success
+  2. Insert in daatbase failure
+  3. Get data from DB Success
+  4. Get data from DB Failure
+
+
+  ![Project Logo](https://i.imgur.com/0Er28Bl.png)
