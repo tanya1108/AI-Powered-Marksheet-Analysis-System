@@ -50,14 +50,14 @@ const Home = () => {
         const extractedText = result?.data?.text;
 
         // Extract name
-        const nameRegex = /Name ?\s*([\w\s]+(?:\s+\w+))/i;
+        const nameRegex = /Name\s+(\w+\s+\w+)\s+of/;
         const nameMatch = extractedText.match(nameRegex);
         const name = nameMatch ? nameMatch[1].trim() : "";
 
         // Extract ID / Roll No.
-        const idRegex = /\b(ID|Rol[l]?|Roll No\.|R[o0]liNo)\s([^ ]+)/i;
+        const idRegex = /ID\s(\d+)/;
         const idMatch = extractedText.match(idRegex);
-        const id = idMatch ? idMatch[2] : "";
+        const id = idMatch ? idMatch[1] : "";
 
         const subjectsRegex = new RegExp(
           `(${SUBJECT_LIST.join("|")})[^\\d]*?(\\d+|\\b[A-Za-z]{2}\\b)`,
