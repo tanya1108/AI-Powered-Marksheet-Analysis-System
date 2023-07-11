@@ -14,7 +14,7 @@ const RootLayout = ({ children }) => {
       <body>
         <Navbar />
         <h1 className="text-center font-bold text-4xl my-4">
-          Academic Transcript Analyzer! 🚀
+          Academic Transcript Analyzer 🚀
         </h1>
         <div className="text-gray-400 font-medium text-center">
           Transform images into text with image-to-text conversion application.
