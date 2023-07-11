@@ -2,8 +2,8 @@ import React from "react";
 import "./globals.css";
 
 export const metadata = {
-  title: "Marksheet Analysis System",
-  description: "Marksheet Analysis System using AI",
+  title: "Marks sheet Analysis System",
+  description: "Marks sheet Analysis System using AI",
 };
 
 const RootLayout = ({ children }) => {
