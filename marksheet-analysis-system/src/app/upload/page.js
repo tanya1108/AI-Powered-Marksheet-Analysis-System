@@ -6,7 +6,6 @@ import supabase from "../supabase";
 import Image from "next/image";
 import CloudUploadOutlinedIcon from "@mui/icons-material/CloudUploadOutlined";
 import SaveOutlinedIcon from "@mui/icons-material/SaveOutlined";
-import Navbar from "../components/Navbar";
 import ScoreTable from "../components/ScoreTable";
 import { FcCamera } from "react-icons/fc";
 import { SUBJECT_LIST } from "../constants";
@@ -105,91 +104,79 @@ const Home = () => {
 
   return (
     <>
-      <Navbar />
-      <h1 className="text-center font-bold text-4xl my-4">
-        Academic Transcript Analyzer! 🚀
-      </h1>
-      <div className="text-gray-400 font-medium text-center">
-        Transform images into text with image-to-text conversion application.
-      </div>
-      <div
-        id="home"
-        className="mx-auto flex-col mb-10 my-10 flex w-full max-w-screen-md flex-wrap py-2 px-2 sm:px-4 lg:max-w-screen-xl"
-      >
-        <main>
-          <div className="flex flex-row">
-            <div className="flex flex-col w-full">
-              <h2 className="text-2xl font-bold mb-5">
-                <div className="flex items-center">
-                  <div className="mr-2 justify-center">Upload a Image</div>
-                  <FcCamera size={32} />
-                </div>
-              </h2>
-              <div className="p-10 border border-dashed border-spacing-2 rounded-lg border-gray-500 align-center flex">
-                <input type="file" accept="image/*" onChange={handleChange} />
-                {imagePath && (
-                  <div className="items-center flex">
-                    <Image
-                      src={imagePreview}
-                      width={"500"}
-                      height={"500"}
-                      alt="image"
-                    />
-                  </div>
-                )}
+      <main>
+        <div className="flex flex-row">
+          <div className="flex flex-col w-full">
+            <h2 className="text-2xl font-bold mb-5">
+              <div className="flex items-center">
+                <div className="mr-2 justify-center">Upload a Image</div>
+                <FcCamera size={32} />
               </div>
-
-              {text && (
-                <div className="my-5 flex-wrap">
-                  <h2 className="text-2xl font-bold my-3">Text</h2>
-                  <span className="text-black text-sm">{text}</span>
+            </h2>
+            <div className="p-10 border border-dashed border-spacing-2 rounded-lg border-gray-500 align-center flex">
+              <input type="file" accept="image/*" onChange={handleChange} />
+              {imagePath && (
+                <div className="items-center flex">
+                  <Image
+                    src={imagePreview}
+                    width={"500"}
+                    height={"500"}
+                    alt="image"
+                  />
                 </div>
               )}
+            </div>
 
-              <div className="flex flex-col my-2">
-                {imagePath && (
-                  <div>
-                    <button
-                      onClick={handleClick}
-                      disabled={!imagePath || converting}
-                      className={
-                        imagePath
-                          ? "w-40 border bg-blue-500 rounded-md border-solid border-blue-500 p-2 mt-2 text-black"
-                          : "w-40 border bg-blue-500 rounded-md border-solid border-blue-500 p-2 mt-2 text-black cursor-not-allowed"
-                      }
-                    >
-                      <CloudUploadOutlinedIcon className="-mt-1 mr-1" />
-                      {converting ? "Converting..." : "Convert"}
-                    </button>
-                    {enable && (
-                      <button
-                        onClick={handleSubmit}
-                        className="w-40 mx-2 border text-black rounded-md border-solid border-green-500 p-2 mt-2"
-                      >
-                        <SaveOutlinedIcon className="-mt-1 mr-1" />
-                        Save
-                      </button>
-                    )}
-                  </div>
-                )}
+            {text && (
+              <div className="my-5 flex-wrap">
+                <h2 className="text-2xl font-bold my-3">Text</h2>
+                <span className="text-black text-sm">{text}</span>
               </div>
+            )}
+
+            <div className="flex flex-col my-2">
+              {imagePath && (
+                <div>
+                  <button
+                    onClick={handleClick}
+                    disabled={!imagePath || converting}
+                    className={
+                      imagePath
+                        ? "w-40 border bg-blue-500 rounded-md border-solid border-blue-500 p-2 mt-2 text-black"
+                        : "w-40 border bg-blue-500 rounded-md border-solid border-blue-500 p-2 mt-2 text-black cursor-not-allowed"
+                    }
+                  >
+                    <CloudUploadOutlinedIcon className="-mt-1 mr-1" />
+                    {converting ? "Converting..." : "Convert"}
+                  </button>
+                  {enable && (
+                    <button
+                      onClick={handleSubmit}
+                      className="w-40 mx-2 border text-black rounded-md border-solid border-green-500 p-2 mt-2"
+                    >
+                      <SaveOutlinedIcon className="-mt-1 mr-1" />
+                      Save
+                    </button>
+                  )}
+                </div>
+              )}
             </div>
           </div>
-        </main>
+        </div>
+      </main>
 
-        {text && (
-          <>
-            <div className="my-2">
-              <h2 className="text-2xl font-bold my-3">Details</h2>
-              <div className="font-medium">
-                Student Name: {studentDetails.name}
-              </div>
-              <div className="font-medium">ID: {studentDetails.ID}</div>
+      {text && (
+        <>
+          <div className="my-2">
+            <h2 className="text-2xl font-bold my-3">Details</h2>
+            <div className="font-medium">
+              Student Name: {studentDetails.name}
             </div>
-            <ScoreTable scores={studentDetails.subjects} />
-          </>
-        )}
-      </div>
+            <div className="font-medium">ID: {studentDetails.ID}</div>
+          </div>
+          <ScoreTable scores={studentDetails.subjects} />
+        </>
+      )}
     </>
   );
 };
