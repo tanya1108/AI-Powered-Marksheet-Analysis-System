@@ -1,3 +1,5 @@
+import React from "react";
+
 const INSTRUCTIONS = [
   "📤 Upload your marks sheet and extract the data from the image",
   "💾 Save it our database for future references",
