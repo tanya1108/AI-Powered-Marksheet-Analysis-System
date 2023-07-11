@@ -59,6 +59,7 @@ The AI-Powered-Marksheet-Analysis-System is a Next.js project that utilizes the 
 3. The extracted details will be saved in the Supabase database.
 4. To retrieve user details, visit the search page and enter the desired ID.
 5. The system will fetch the corresponding user details from the database and display them.
+6. Currently there is a list of hardcoded subjects, which is used in pattern search in string
 
 
 ## Acknowledgments
@@ -72,7 +73,24 @@ For any inquiries or feedback, please contact [tanyasinha828@gmail.com].
 
 ## TODO
 
-- [ ] Add unit tests
+- [x] Add unit tests
 - [ ] Improve error handling
 - [ ] Implement additional features (e.g., data visualization, user management)
 - [ ] Add auth check
+- [ ] Feature to add subjects from the dashboard itself, instead of hardcoding.
+
+## Unit & Integration Test Results
+- The unit test covers 4 test cases as of now:
+  1. Text Extraction Process Success
+  2. Text Extraction Process Failure
+  3. User Details Search Success
+  4. User Details Search Failure
+   
+- The integration test covers 4 test cases as of now:
+  1. Insert in Database success
+  2. Insert in daatbase failure
+  3. Get data from DB Success
+  4. Get data from DB Failure
+
+
+  ![Project Logo](https://i.imgur.com/0Er28Bl.png)
