@@ -1,8 +1,8 @@
 "use client";
 import React, { useState } from "react";
 import supabase from "../supabase";
-import ScoreTable from "../ScoreTable";
-import Navbar from "../Navbar";
+import ScoreTable from "../components/ScoreTable";
+import Navbar from "../components/Navbar";
 import { FcSearch } from "react-icons/fc";
 
 const Search = () => {

@@ -1,9 +1,9 @@
 "use client";
 import React from "react";
-import Navbar from "./Navbar";
+import Navbar from "./components/Navbar";
 import CloudUploadOutlinedIcon from "@mui/icons-material/CloudUploadOutlined";
 import PersonSearchIcon from "@mui/icons-material/PersonSearch";
-import Instructions from "./Instructions";
+import Instructions from "./components/Instructions";
 
 function Home() {
   return (

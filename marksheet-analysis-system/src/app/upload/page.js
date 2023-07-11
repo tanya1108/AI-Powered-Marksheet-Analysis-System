@@ -6,8 +6,8 @@ import supabase from "../supabase";
 import Image from "next/image";
 import CloudUploadOutlinedIcon from "@mui/icons-material/CloudUploadOutlined";
 import SaveOutlinedIcon from "@mui/icons-material/SaveOutlined";
-import Navbar from "../Navbar";
-import ScoreTable from "../ScoreTable";
+import Navbar from "../components/Navbar";
+import ScoreTable from "../components/ScoreTable";
 import { FcCamera } from "react-icons/fc";
 import { SUBJECT_LIST } from "../constants";
 
