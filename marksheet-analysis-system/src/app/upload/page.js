@@ -10,8 +10,9 @@ import Navbar from "../components/Navbar";
 import ScoreTable from "../components/ScoreTable";
 import { FcCamera } from "react-icons/fc";
 import { SUBJECT_LIST } from "../constants";
+import { toast } from "react-toastify";
 
-function Home() {
+const Home = () => {
   const [imagePath, setImagePath] = useState("");
   const [imagePreview, setImagePreview] = useState("");
   const [text, setText] = useState("");
@@ -92,9 +93,9 @@ function Home() {
         },
       ]);
       if (error) {
-        window.alert("Something went wrong", error);
+        toast.error(error.message);
       } else {
-        window.alert("Data saved successfully!");
+        toast.success("Data saved successfully!");
         resetState();
       }
     } catch (error) {
@@ -191,6 +192,6 @@ function Home() {
       </div>
     </>
   );
-}
+};
 
 export default Home;

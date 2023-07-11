@@ -4,6 +4,7 @@ import supabase from "../supabase";
 import ScoreTable from "../components/ScoreTable";
 import Navbar from "../components/Navbar";
 import { FcSearch } from "react-icons/fc";
+import { toast } from "react-toastify";
 
 const Search = () => {
   const [response, setResponse] = useState(null);
@@ -24,13 +25,13 @@ const Search = () => {
         .single();
 
       if (error) {
-        window.alert("Something went wrong", error);
+        toast.error(error.message);
       }
 
       setResponse(data);
     } catch (error) {
       console.error("Error searching in database:", error.message);
-      window.alert("Something went wrong", error);
+      toast.error(error.message);
     }
   };
 
