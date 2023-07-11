@@ -1,4 +1,3 @@
-import React from "react";
 import { FcWorkflow } from "react-icons/fc";
 
 const Navbar = () => (
